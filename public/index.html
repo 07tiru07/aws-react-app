@@ -27,6 +27,99 @@
     <title>React App</title>
   </head>
   <body>
+    <script src="https://d17k2wnsxb3zhw.cloudfront.net/lex-web-ui-loader.min.js"></script>
+    <script>
+      var loaderOpts = {
+        baseUrl: "https://d17k2wnsxb3zhw.cloudfront.net/",
+        shouldLoadMinDeps: true,
+      };
+      var loader = new ChatBotUiLoader.IframeLoader(loaderOpts);
+      var chatbotUiConfig = {
+        region: "us-east-1",
+        cognito: {
+          poolId: "us-east-1:3c40fce6-5f22-401a-a120-3ddf17da5b70",
+          appUserPoolClientId: "2m5j9plorl9pa8554k7th45u84",
+          appUserPoolName: "us-east-1_3RJN2BRiv",
+          appDomainName:
+            "lexkwebkuiktestkidentitypoolconfigkbmwdqemp062171769702.auth.us-east-1.amazoncognito.com",
+          aws_cognito_region: "us-east-1",
+          region: "us-east-1",
+        },
+        connect: {
+          contactFlowId: "",
+          instanceId: "",
+          apiGatewayEndpoint: "",
+          promptForNameMessage:
+            "Before starting a live chat, please tell me your name?",
+          waitingForAgentMessage:
+            "Thanks for waiting. An agent will be with you when available.",
+          waitingForAgentMessageIntervalSeconds: "60",
+          agentJoinedMessage: "{Agent} has joined.",
+          agentLeftMessage: "{Agent} has left.",
+          chatEndedMessage: "Chat ended.",
+          attachChatTranscript: "false",
+          liveChatTerms: "live chat",
+          transcriptMessageDelayInMsec: "150",
+        },
+        lex: {
+          v2BotId: "WZWZDBTKRW",
+          v2BotAliasId: "TSTALIASID",
+          v2BotLocaleId: "en_US",
+          botName: "WZWZDBTKRW",
+          botAlias: "$LATEST",
+          initialText:
+            'You can ask me for help ordering flowers. Just type "Buy flowers" or click on the mic and say it.',
+          initialSpeechInstruction: "Say 'Buy Flowers' to get started.",
+          initialUtterance: "",
+          reInitSessionAttributesOnRestart: false,
+          region: "us-east-1",
+          retryOnLexPostTextTimeout: "false",
+          retryCountPostTextTimeout: "1",
+        },
+        ui: {
+          parentOrigin: "http://localhost:3000",
+          toolbarTitle: "Order Flowers",
+          toolbarLogo: "",
+          toolbarStartLiveChatLabel: "Start Live Chat",
+          toolbarEndLiveChatLabel: "End Live Chat",
+          toolbarStartLiveChatIcon: "people_alt",
+          toolbarEndLiveChatIcon: "call_end",
+          positiveFeedbackIntent: "Thumbs up",
+          negativeFeedbackIntent: "Thumbs down",
+          helpIntent: "Help",
+          minButtonContent: "",
+          backButton: false,
+          messageMenu: false,
+          hideButtonMessageBubble: false,
+          enableLogin: true,
+          enableLiveChat: false,
+          forceLogin: false,
+          AllowSuperDangerousHTMLInMessage: true,
+          shouldDisplayResponseCardTitle: false,
+          saveHistory: false,
+          helpContent: {},
+          enableSFX: false,
+          hideInputFieldsForButtonResponse: false,
+          pushInitialTextOnRestart: false,
+          directFocusToBotInput: false,
+          showDialogStateIcon: false,
+        },
+        polly: {
+          voiceId: "Salli",
+        },
+        recorder: {
+          preset: "speech_recognition",
+        },
+        iframe: {
+          iframeOrigin: "https://d17k2wnsxb3zhw.cloudfront.net",
+          shouldLoadIframeMinimized: false,
+          iframeSrcPath: "/index.html#/?lexWebUiEmbed=true",
+        },
+      };
+      loader.load(chatbotUiConfig).catch(function (error) {
+        console.error(error);
+      });
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
